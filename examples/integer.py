@@ -1,0 +1,9 @@
+"""
+
+    *Integer*
+
+"""
+
+
+class Integer:
+    pass
