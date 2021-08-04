@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "depyt"
 version = "0.1.0"
-description = ""
+description = "Extends Python with a symbolic dependent type system."
 authors = ["Jed Hsu <jedhsu@pm.me>"]
 
 [tool.poetry.dependencies]
