@@ -8,12 +8,11 @@
 
 **Making type a variable allows type to best represent its meaning, which is a collection / shape, rather than a point-wise scalar.**
 
-Ultimately, build up to extended static checking as such:
+Ultimately, this opens up extended static assertion (albeit no guarantees on soundness):
 
 ```python
-
 class Hstack:
-    Tensor[D][m1, n] + Tensor[D][m2, n] = Tensor[D]
+    Matrix[D][m1, n] + Matrix[D][m2, n] = Matrix[D][m1 + m2, n]
     
 ```
 
