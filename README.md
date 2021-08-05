@@ -3,7 +3,7 @@
 * Effect type.
 
 
-**Making type a variable allows type to best represent its meaning, which is a shape of values, rather than a scalar.**
+**Making type a variable allows type to best represent its meaning, which is a collection / shape, rather than a point-wise scalar.**
 
 ```python
 
