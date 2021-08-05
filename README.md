@@ -6,6 +6,23 @@ I feel like confusion stems from confounding types and classes, when they are in
 
 Consider that a Python class is an expansion form, while effectively assigning a hash value to a set of values. This is why it works until composability of the type as a space.
 
+#### Modeling Structure
+
+Values       *are represented by*        Values     *which compose into*
+
+Values expand and reduce under closed operations.
+Expressions do not.
+Variables thus parametrize over the space of a type.
+
+Thus there are value expressions & variable expressions - we must distinguish.
+- when specifying the expression, you want to work with structure - so you need abstract expression.
+
+Abstract types (or abstracts) *parametrize* into types, and *instantiate* into values.
+
+
+Parameters      Expressions         Variables
+Types have metavariables.
+
 
 #### Features
 * Dependent type system.

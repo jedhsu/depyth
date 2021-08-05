@@ -8,9 +8,9 @@
 
 """
 
-from ._parameter import TypeParameter
+from sympy import Symbol
 
-from .._symbol import Symbol
+from ._parameter import TypeParameter
 
 __all__ = ["VariableTypeParameter"]
 

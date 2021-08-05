@@ -1,6 +1,6 @@
 """
 
-    *Expression*
+    *Symbolic Expression*
 
 """
 

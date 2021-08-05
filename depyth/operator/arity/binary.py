@@ -13,7 +13,7 @@ from typing import Generic
 from typing import TypeVar
 from typing import ClassVar
 
-from wich._type import Type
+from depyth._type import Type
 from wich._form.type import Nothing
 
 from ...arity import BinaryAction
@@ -21,7 +21,13 @@ from ._operator import AritiedOperator
 
 __all__ = ["BinaryOperator"]
 
-ParameterType1 = TypeVar("ParameterType1", bound=Type)
+
+class ParameterType(
+    Type,
+):
+    __metaclass__ = ABCMeta
+
+
 ParameterType2 = TypeVar("ParameterType2", bound=Type)
 ParameterType3 = TypeVar("ParameterType3", bound=Type)
 
@@ -31,7 +37,7 @@ ReturnType = TypeVar("ReturnType", bound=Type)
 @dataclass
 class BinaryOperator(
     BinaryAction[
-        ParameterType1,
+        ParameterType,
         ParameterType2,
         ReturnType,
         Nothing,
@@ -42,8 +48,8 @@ class BinaryOperator(
 
     _effect = ClassVar[Nothing]
 
-    _parameter1: ParameterType1
-    _parameter2: ParameterType2
+    _parameter1: ParameterType
+    _parameter2: ParameterType
 
     _return: ReturnType
 

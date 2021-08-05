@@ -1,23 +1,23 @@
 """
 
-    *Scalar Symbolic Type*
+    *Atomic Type Variable*
+
+  A generic atomic type variable, represented by a symbol.
 
 """
 
 from __future__ import annotations
-from abc import ABCMeta
 from dataclasses import dataclass
 
-from typing import Union
-from typing import TypeVar
-from typing import Generic
+from abc import ABCMeta
+from abc import abstractmethod
 
-from ..parameter import TypeParameter
 
 from sympy import Symbol
-from sympy import Expr
 
-__all__ = ["ScalarSymbolicType"]
+from .._type import AtomicType
+
+__all__ = ["AtomicTypeVariable"]
 
 
 A = Symbol("A")
@@ -25,12 +25,22 @@ B = Symbol("B")
 
 
 @dataclass
-class ScalarSymbolicType(
-    type,
+class AtomicTypeVariable(
+    Symbol,
 ):
     __metaclass__ = ABCMeta
 
-    parameter: TypeParameter
+    type: AtomicType
+
+    def __init__(
+        self,
+        *args,
+        **kwargs,
+    ):
+        super(AtomicTypeVariable, self).__init__(
+            *args,
+            **kwargs,
+        )
 
     def __repr__(self):
         return "{}[{}]".format(
@@ -38,36 +48,20 @@ class ScalarSymbolicType(
             self,
         )
 
-    def __eq__(self):
-        """
-        [TODO] Equality up to alpha equivalence.
-
-        """
-        return self.parameter == self.parameter
+    @abstractmethod
+    def __add__(self, var: AtomicTypeVariable) -> AtomicTypeVariable:
+        return AtomicTypeVariable(self + var)
 
 
-T = TypeVar("T", bound=ScalarSymbolicType)
+#     def __eq__(self):
+#         """
+#         [TODO] Equality up to alpha equivalence.
+
+#         """
+#         return self.parameter == self.parameter
 
 
-class ScalarSymbolicTypeOps(
-    Generic[T],
-    ScalarSymbolicType,
-):
-    @classmethod
-    def add(
-        cls,
-        t1: T,
-        t2: T,
-    ) -> T:
-        return cls(
-            t1.parameter + t2.parameter,
-        )
-
-    def __sub__(
-        self,
-        other: ScalarSymbolicType,
-    ) -> IntegerType:
-        return IntegerType(self.parameter - other.parameter)
+# T = TypeVar("T", bound=ScalarSymbolicType)
 
 
 # class Scalar(
