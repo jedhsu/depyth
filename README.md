@@ -6,7 +6,7 @@
 * Prototyping of effect type via design by contract.
 
 
-**Making type a variable allows type to best represent its meaning, which is a collection / shape, rather than a point-wise scalar.**
+**Representing a type using a variable best captures its meaning, which is a collection / shape, as opposed to a point-wise element.**
 
 Ultimately, this opens up extended static assertion (albeit no guarantees on soundness):
 
