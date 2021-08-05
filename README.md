@@ -19,6 +19,8 @@ Thus there are value expressions & variable expressions - we must distinguish.
 
 Abstract types (or abstracts) *parametrize* into types, and *instantiate* into values.
 
+[NOTE] interestingly, note that *kind* is not the right higher-level abstraction here, as we are not dealing with more grouping layers (which can be trivially dealt with with a single-order type theory anyway.)
+
 
 Parameters      Expressions         Variables
 Types have metavariables.
