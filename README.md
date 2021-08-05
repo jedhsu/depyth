@@ -1,3 +1,12 @@
+## depyth
+
+#### Motivation - Types and Classes
+
+I feel like confusion stems from confounding types and classes, when they are in fact concepts at different layers of abstraction. Classes exist as a syntax construct of the language.
+
+Consider that a Python class is an expansion form, while effectively assigning a hash value to a set of values. This is why it works until composability of the type as a space.
+
+
 #### Features
 * Dependent type system.
   - Types are first-class.
@@ -8,11 +17,11 @@
 
 **Representing a type using a variable best captures its meaning, which is a collection / shape, as opposed to a point-wise element.**
 
-Ultimately, this opens up extended static assertion (albeit no guarantees on soundness):
+Dependent types enable static assertion on type parameters, (albeit no guarantees on soundness):
 
 ```python
-class Hstack:
-    Matrix[D][m1, n] + Matrix[D][m2, n] = Matrix[D][m1 + m2, n]
+def horizontal_stack(m1: Matrix[D][m1, n], m2: Matrix[D][m2, n]) -> Matrix[D][m1 + m2, n]:
+    ...
     
 ```
 
