@@ -25,6 +25,7 @@ Abstract types (or abstracts) *parametrize* into types, and *instantiate* into v
 Parameters      Expressions         Variables
 Types have metavariables.
 
+Another feature to do later is ability to map certain dependent types to specific accessing syntaxes. (helpful for tensor, for ex)
 
 #### Features
 * Dependent type system.
