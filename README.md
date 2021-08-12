@@ -7,9 +7,9 @@
 We will define a language model on top of the Python language model such that **abstract forms**,
 which represent meta-syntax, *parametrize* into **type forms**, and *instantiate* into **value forms**.
 
-We represent types by symbolic expressions in Sympy, in which symbolic expressions of variables 'X'
-represent a type. This creates an internal representation as to what constitutes a value: an object
-that has the form of a value in Python that does not implement the symbolic expression protocol.
+We represent types by symbolic expressions, implemented via Sympy. This creates an internal representation
+as to what constitutes a value: an object that has the form of a value in Python that does not
+implement the symbolic expression protocol.
 
 Thus, type-checking will constitute of evaluation of these variable expressions, and checking that the result is
 well-formed.
