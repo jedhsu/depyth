@@ -19,16 +19,26 @@ well-formed.
 We want to implement the semantics of the following feature:
 
 ```python
-T = Tensor              # returns the unique type representing the space of all tensors
-T = Tensor[A, B]        # returns the unique type representing the space of all 2-D tensors (matrices)
-Tensor[A, B] == Tensor[C, D]        # alpha equivalence
+# returns the unique type representing the space of all tensors
+T = Tensor
+
+# returns the unique type representing the space of all 2-D tensors (matrices)
+T = Tensor[A, B]
+
+# returns true, from alpha equivalence
+Tensor[A, B] == Tensor[C, D]
+
 ```
 
 Assume tensor is parametrized by its datatype and shape. Note that we will want:
 
 ```python
-Tensor == Tensor[A, B]  # returns False
-Tensor[C, D] == Tensor[C, D][A]         # returns True
+# returns False
+Tensor == Tensor[A, B]
+
+# returns True
+Tensor[C, D] == Tensor[C, D][A]
+
 ```
 
 This means we need some internal mechanism to check
@@ -39,9 +49,14 @@ On syntax, I am trying something like the above for now, and if this creates pro
 I will switch to something more explicit, such as 
 
 ```python
-Tensor.form      # returns abstract
-Tensor.parametrize().form       # returns type
-Tensor.instantiate(...).form    # returns value
+# returns abstract
+Tensor.form
+
+# returns type
+Tensor.parametrize().form
+
+# returns value
+Tensor.instantiate(...).form
 ```
 
 
