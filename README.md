@@ -25,7 +25,7 @@ T = Tensor
 # returns the unique type representing the space of all 2-D tensors (matrices)
 T = Tensor[A, B]
 
-# returns true, from alpha equivalence
+# returns True, from alpha equivalence
 Tensor[A, B] == Tensor[C, D]
 
 ```
@@ -64,7 +64,7 @@ Tensor.instantiate(...).form
 
 We want to be able to implement the following, and have the type be verifiable with static analysis.
 
-```
+```python
 class Fraction:
     def __add__(
         self: Fraction[
@@ -75,7 +75,10 @@ class Fraction:
             Integer[C],
             Integer[D],
         ],
-    ) -> Fraction[Integer[A * D], Integer[B * C]]:
+    ) -> Fraction[
+        Integer[A * D],
+        Integer[B * C],
+    ]:
         return Fraction(
             (self.numerator * other.denominator),
             (other.numerator * self.denominator),
