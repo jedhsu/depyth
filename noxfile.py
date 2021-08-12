@@ -15,12 +15,13 @@ from nox_poetry import Session
 from nox_poetry import session
 
 
-package = "depyth"
-python_versions = [
+__package__ = "depyth"
+__versions__ = [
     "3.9",
     "3.8",
     "3.7",
 ]
+
 nox.needs_version = ">= 2021.6.6"
 nox.options.sessions = (
     "pre-commit",
@@ -136,7 +137,7 @@ def lint(
 
 
 @session(
-    python=python_versions,
+    python=__versions__,
 )
 def mypy(
     session: Session,
@@ -173,7 +174,7 @@ def mypy(
 
 
 @session(
-    python=python_versions,
+    python=__versions__,
 )
 def typeguard(
     session: Session,
@@ -186,201 +187,201 @@ def typeguard(
     )
     session.run(
         "pytest",
-        f"--typeguard-packages={package}",
+        f"--typeguard-packages={__package__}",
         *session.posargs,
     )
 
 
-# """
+"""
 
-#     *tests*
+    *tests*
 
-#   Runs the test suite with _pytest_.
+  Runs the test suite with _pytest_.
 
-# """
-
-
-# @session(
-#     python=[
-#         "3.9",
-#         "3.8",
-#         "3.7",
-#     ]
-# )
-# def tests(
-#     session: Session,
-# ) -> None:
-#     session.install(".")
-#     session.install(
-#         "coverage[toml]",
-#         "pytest",
-#         "pygments",
-#     )
-#     try:
-#         session.run(
-#             "coverage",
-#             "run",
-#             "--parallel",
-#             "-m",
-#             "pytest",
-#             *session.posargs,
-#         )
-#     finally:
-#         if session.interactive:
-#             session.notify(
-#                 "coverage",
-#                 posargs=[],
-#             )
+"""
 
 
-# """
-
-#     *security*
-
-#   Scans dependencies for insecure packages through _safety_.
-
-# """
-
-
-# @session(python="3.9")
-# def security(
-#     session: Session,
-# ) -> None:
-#     requirements = session.poetry.export_requirements()
-#     session.install("safety")
-#     session.run(
-#         "safety",
-#         "check",
-#         "--full-report",
-#         f"--file={requirements}",
-#     )
-
-
-# """
-
-#     *coverage*
-
-#   Analyzes code coverage with _coverage_.
-
-# """
-
-
-# @session
-# def coverage(
-#     session: Session,
-# ) -> None:
-#     args = session.posargs or ["report"]
-
-#     session.install("coverage[toml]")
-
-#     if not session.posargs and any(Path().glob(".coverage.*")):
-#         session.run("coverage", "combine")
-
-#     session.run("coverage", *args)
+@session(
+    python=[
+        "3.9",
+        "3.8",
+        "3.7",
+    ]
+)
+def tests(
+    session: Session,
+) -> None:
+    session.install(".")
+    session.install(
+        "coverage[toml]",
+        "pytest",
+        "pygments",
+    )
+    try:
+        session.run(
+            "coverage",
+            "run",
+            "--parallel",
+            "-m",
+            "pytest",
+            *session.posargs,
+        )
+    finally:
+        if session.interactive:
+            session.notify(
+                "coverage",
+                posargs=[],
+            )
 
 
-# """
+"""
 
-#     *docs-build*
+    *coverage*
 
-#   Build the docs.
+  Analyzes code coverage with _coverage_.
 
-# """
-
-
-# @session(
-#     name="docs-build",
-#     python="3.9",
-# )
-# def docs_build(
-#     session: Session,
-# ) -> None:
-#     """Build the documentation."""
-#     args = session.posargs or [
-#         "docs",
-#         "docs/_build",
-#     ]
-#     session.install(".")
-#     session.install(
-#         "sphinx",
-#         "sphinx-click",
-#         "sphinx-rtd-theme",
-#     )
-
-#     build_dir = Path(
-#         "docs",
-#         "_build",
-#     )
-#     if build_dir.exists():
-#         shutil.rmtree(build_dir)
-
-#     session.run(
-#         "sphinx-build",
-#         *args,
-#     )
+"""
 
 
-# """
+@session
+def coverage(
+    session: Session,
+) -> None:
+    args = session.posargs or ["report"]
 
-#     *build-with-view*
+    session.install("coverage[toml]")
 
-#   Build and serve the documentation with live reloading on changes.
+    if not session.posargs and any(Path().glob(".coverage.*")):
+        session.run("coverage", "combine")
 
-# """
-
-
-# @session(
-#     python="3.9",
-# )
-# def docs(
-#     session: Session,
-# ) -> None:
-#     args = session.posargs or [
-#         "--open-browser",
-#         "docs",
-#         "docs/_build",
-#     ]
-
-#     session.install(".")
-#     session.install(
-#         "sphinx",
-#         "sphinx-autobuild",
-#         "sphinx-click",
-#         "sphinx-rtd-theme",
-#     )
-
-#     build_dir = Path("docs", "_build")
-#     if build_dir.exists():
-#         shutil.rmtree(build_dir)
-
-#     session.run(
-#         "sphinx-autobuild",
-#         *args,
-#     )
+    session.run("coverage", *args)
 
 
-# """
+"""
 
-#     *examples*
+    *security*
 
-#   Run examples with xdoctest.
+  Scans dependencies for insecure packages through _safety_.
 
-# """
+"""
 
 
-# @session(
-#     python=python_versions,
-# )
-# def examples(
-#     session: Session,
-# ) -> None:
-#     args = session.posargs or ["all"]
-#     session.install(".")
-#     session.install("xdoctest[colors]")
-#     session.run(
-#         "python",
-#         "-m",
-#         "xdoctest",
-#         package,
-#         *args,
-#     )
+@session(python="3.9")
+def security(
+    session: Session,
+) -> None:
+    requirements = session.poetry.export_requirements()
+    session.install("safety")
+    session.run(
+        "safety",
+        "check",
+        "--full-report",
+        f"--file={requirements}",
+    )
+
+
+"""
+
+    *docs-build*
+
+  Build the docs.
+
+"""
+
+
+@session(
+    name="docs-build",
+    python="3.9",
+)
+def docs_build(
+    session: Session,
+) -> None:
+    """Build the documentation."""
+    args = session.posargs or [
+        "docs",
+        "docs/_build",
+    ]
+    session.install(".")
+    session.install(
+        "sphinx",
+        "sphinx-click",
+        "sphinx-rtd-theme",
+    )
+
+    build_dir = Path(
+        "docs",
+        "_build",
+    )
+    if build_dir.exists():
+        shutil.rmtree(build_dir)
+
+    session.run(
+        "sphinx-build",
+        *args,
+    )
+
+
+"""
+
+    *build-with-view*
+
+  Build and serve the documentation with live reloading on changes.
+
+"""
+
+
+@session(
+    python="3.9",
+)
+def docs(
+    session: Session,
+) -> None:
+    args = session.posargs or [
+        "--open-browser",
+        "docs",
+        "docs/_build",
+    ]
+
+    session.install(".")
+    session.install(
+        "sphinx",
+        "sphinx-autobuild",
+        "sphinx-click",
+        "sphinx-rtd-theme",
+    )
+
+    build_dir = Path("docs", "_build")
+    if build_dir.exists():
+        shutil.rmtree(build_dir)
+
+    session.run(
+        "sphinx-autobuild",
+        *args,
+    )
+
+
+"""
+
+    *examples*
+
+  Run examples with xdoctest.
+
+"""
+
+
+@session(
+    python=__versions__,
+)
+def examples(
+    session: Session,
+) -> None:
+    args = session.posargs or ["all"]
+    session.install(".")
+    session.install("xdoctest[colors]")
+    session.run(
+        "python",
+        "-m",
+        "xdoctest",
+        __package__,
+        *args,
+    )

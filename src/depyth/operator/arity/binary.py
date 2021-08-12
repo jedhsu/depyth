@@ -10,7 +10,6 @@ from dataclasses import dataclass
 from typing import Generic
 from typing import TypeVar
 
-
 from ._operator import AritiedOperator
 from depyth._type import Type
 
