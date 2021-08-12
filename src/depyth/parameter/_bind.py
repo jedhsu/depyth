@@ -3,9 +3,7 @@
     *Type Parameter, Bindings*
 
 """
-
 from ._parameter import TypeParameter
-
 from .constant import ConstantTypeParameter
 from .variable import VariableTypeParameter
 

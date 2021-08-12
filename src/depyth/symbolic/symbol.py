@@ -3,7 +3,6 @@
     *Symbol*
 
 """
-
 from abc import ABCMeta
 
 from sympy import Symbol as _Symbol
@@ -16,9 +15,9 @@ __all__ = ["Symbol"]
 class Symbol(
     _Symbol,
     Symbolic,
+    type,
+    metaclass=ABCMeta,
 ):
-    __metaclass__ = ABCMeta
-
     def __init__(
         self,
         symbol: str,

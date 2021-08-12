@@ -3,7 +3,6 @@
     *Type*
 
 """
-
 from abc import ABCMeta
 
 __all__ = ["Type"]

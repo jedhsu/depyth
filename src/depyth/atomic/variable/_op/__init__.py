@@ -1,5 +1,4 @@
 from ._operator import TypeVariableOperator
-
 from .add import TypeVariableAdd
 
 __all__ = [

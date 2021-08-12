@@ -1,6 +1,12 @@
-## depyth
+.. |Codecov| image:: https://codecov.io/gh/jedhsu/depyth/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/jedhsu/depyth
+   :alt: Codecov
 
-#### Motivation - Types and Classes
+depyth
+======
+
+Motivation - Types and Classes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 I feel like confusion stems from confounding types and classes, when they are in fact concepts at different layers of abstraction. Classes exist as a syntax construct of the language.
 
@@ -19,13 +25,21 @@ Thus there are value expressions & variable expressions - we must distinguish.
 
 Abstract types (or abstracts) *parametrize* into types, and *instantiate* into values.
 
+Need the notion of an abstract to distinguish from a type (which is a variable).
+
+
 [NOTE] interestingly, note that *kind* is not the right higher-level abstraction here, as we are not dealing with more grouping layers (which can be trivially dealt with with a single-order type theory anyway.)
+
+
 
 
 Parameters      Expressions         Variables
 Types have metavariables.
 
 Another feature to do later is ability to map certain dependent types to specific accessing syntaxes. (helpful for tensor, for ex)
+
+Analogue of type expressions are algebraic expressions, since types are equivalent to variables.
+
 
 #### Features
 * Dependent type system.
@@ -42,7 +56,7 @@ Dependent types enable static assertion on type parameters, (albeit no guarantee
 ```python
 def horizontal_stack(m1: Matrix[D][m1, n], m2: Matrix[D][m2, n]) -> Matrix[D][m1 + m2, n]:
     ...
-    
+
 ```
 
 Influenced by System F, Idris.

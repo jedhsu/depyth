@@ -3,9 +3,8 @@
     *Atomic Type, Bindings*
 
 """
-
-from ._type import AtomicType as _AtomicType
 from ._op import ClassGetItem
+from ._type import AtomicType as _AtomicType
 
 __all__ = ["AtomicType"]
 

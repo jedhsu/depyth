@@ -5,7 +5,6 @@
   Operator type partitioned by arity.
 
 """
-
 from abc import ABCMeta
 from typing import TypeVar
 

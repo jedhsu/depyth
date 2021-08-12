@@ -3,7 +3,6 @@
     *Symbolic Expression*
 
 """
-
 from abc import ABCMeta
 
 from sympy import Expr

@@ -5,17 +5,14 @@
   An operator of arity 3.
 
 """
-
 from abc import ABCMeta
 from dataclasses import dataclass
-
-from typing import TypeVar
 from typing import ClassVar
+from typing import Generic
+from typing import TypeVar
 
 from wich._type import Type
-from wich._form.type import Nothing
 
-from ...arity import TernaryAction
 from ._operator import AritiedOperator
 
 __all__ = ["TernaryOperator"]
@@ -30,18 +27,15 @@ NothingType = TypeVar("NothingType", bound=Nothing)
 
 @dataclass
 class TernaryOperator(
-    TernaryAction[
+    Generic[
         ParameterType1,
         ParameterType2,
         ParameterType3,
         ReturnType,
-        Nothing,
     ],
     AritiedOperator,
+    metaclass=ABCMeta,
 ):
-    __metaclass__ = ABCMeta
-
-    _effect = ClassVar[Nothing]
 
     _parameter1: ParameterType1
     _parameter2: ParameterType2

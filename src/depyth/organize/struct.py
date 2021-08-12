@@ -3,7 +3,6 @@
     *Struct*
 
 """
-
 from ._type import Type
 
 __all__ = ["Struct"]

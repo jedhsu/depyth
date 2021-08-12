@@ -7,7 +7,6 @@
   Polymorphic type.
 
 """
-
 from sympy import Symbol
 
 from ._parameter import TypeParameter

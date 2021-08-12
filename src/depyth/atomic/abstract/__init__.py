@@ -1,3 +1,2 @@
-from ._meta import Metatype
-
+from ._meta import Abstract
 from .variable import Metavariable

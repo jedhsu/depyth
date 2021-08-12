@@ -5,13 +5,11 @@
   A generic atomic type variable, represented by a symbol.
 
 """
-
 from __future__ import annotations
-from dataclasses import dataclass
 
 from abc import ABCMeta
 from abc import abstractmethod
-
+from dataclasses import dataclass
 
 from sympy import Symbol
 
@@ -27,8 +25,8 @@ B = Symbol("B")
 @dataclass
 class AtomicTypeVariable(
     Symbol,
+    metaclass=ABCMeta,
 ):
-    __metaclass__ = ABCMeta
 
     type: AtomicType
 
@@ -49,7 +47,10 @@ class AtomicTypeVariable(
         )
 
     @abstractmethod
-    def __add__(self, var: AtomicTypeVariable) -> AtomicTypeVariable:
+    def __add__(
+        self,
+        var: AtomicTypeVariable,
+    ) -> AtomicTypeVariable:
         return AtomicTypeVariable(self + var)
 
 

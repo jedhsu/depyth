@@ -1,11 +1,8 @@
 from ._symbolic import Symbolic
-
-from .symbol import Symbol
-
-from .sequence import SymbolicSequence
-from .mapping import SymbolicMapping
-
 from .expression import SymbolicExpression
+from .mapping import SymbolicMapping
+from .sequence import SymbolicSequence
+from .symbol import Symbol
 
 __all__ = [
     "Symbolic",

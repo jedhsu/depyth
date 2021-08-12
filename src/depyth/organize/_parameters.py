@@ -3,7 +3,6 @@
     *Type Parameters*
 
 """
-
 from bidict import bidict
 
 __all__ = ["TypeParameters"]

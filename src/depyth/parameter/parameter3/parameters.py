@@ -3,7 +3,6 @@
     *Type Parameters*
 
 """
-
 from typing import Sequence
 
 from .parameter import TypeParameter

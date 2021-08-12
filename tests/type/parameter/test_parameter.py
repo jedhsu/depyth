@@ -3,7 +3,6 @@
     *Type Parameter,   [Unit Tests]*
 
 """
-
 from depyt.type.parameter.parameter import Test
 from depyt.type.parameter.parameter import TypeParameter
 

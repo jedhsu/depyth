@@ -5,7 +5,6 @@
   Confirm that composite meta-variables are not needed.
 
 """
-
 from sympy import Symbol
 
 __all__ = ["Metavariable"]

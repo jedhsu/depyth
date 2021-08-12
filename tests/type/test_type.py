@@ -3,10 +3,8 @@
     *Test Type*
 
 """
-
 from depyt.type.type import A
 from depyt.type.type import B
-
 from depyt.type.type import BasicType
 from depyt.type.type import Test
 

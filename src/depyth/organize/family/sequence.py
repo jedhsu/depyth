@@ -7,7 +7,6 @@
   Can be countably infinite.
 
 """
-
 from abc import ABCMeta
 from abc import abstractmethod
 

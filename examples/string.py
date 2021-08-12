@@ -1,7 +1,8 @@
 from __future__ import annotations
-from ._bind import AtomicType
 
 from sympy import Symbol
+
+from ._bind import AtomicType
 
 A = Symbol("A")
 B = Symbol("B")

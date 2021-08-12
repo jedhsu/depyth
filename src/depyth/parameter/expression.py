@@ -5,11 +5,9 @@
   Represents parametrization over a space.
 
 """
-
-from ._parameter import TypeParameter
-
-from .._symbol import SymbolicExpression
 from .._symbol import Symbol
+from .._symbol import SymbolicExpression
+from ._parameter import TypeParameter
 
 __all__ = ["ExpressionTypeParameter"]
 

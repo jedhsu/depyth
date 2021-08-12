@@ -3,10 +3,8 @@
     *Variable Type Parameter,   [Bindings]*
 
 """
-
-from depyt.symbol.parameter.variable import Test
-
 from depyt.symbol.parameter.variable import Symbol
+from depyt.symbol.parameter.variable import Test
 from depyt.symbol.parameter.variable import VariableTypeParameter
 
 

@@ -5,7 +5,6 @@
   Parameterize a type over an index.
 
 """
-
 from abc import ABCMeta
 from typing import Collection
 

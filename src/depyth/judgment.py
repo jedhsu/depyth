@@ -3,7 +3,6 @@
     *Typing Judgment*
 
 """
-
 from depyth.operator import Operator
 
 

@@ -1,27 +1,29 @@
 """
 
-    *Metatype*
+    *Abstract*
+
+  An abstract
+  * parameterizes a type.
+  * instantiates a value.
+
 
 """
-
-
 from __future__ import annotations
+
 from abc import ABCMeta
 from dataclasses import dataclass
-
 from typing import ClassVar
-
 
 from .parameter import TypeParameters
 
-__all__ = ["Metatype"]
+__all__ = ["Abstract"]
 
 
 @dataclass
-class Metatype(
+class Abstract(
     type,
+    metaclass=ABCMeta,
 ):
-    __metaclass__ = ABCMeta
 
     parameters: ClassVar[TypeParameters] = TypeParameters({})
 
@@ -47,3 +49,8 @@ class Metatype(
         )
         cls.parameters = params
         return cls
+
+    def __add__(
+        self,
+    ):
+        pass

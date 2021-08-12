@@ -1,7 +1,6 @@
 from ._family import TypeFamily
-
-from .sequence import TypeSequence
 from .mapping import TypeMapping
+from .sequence import TypeSequence
 
 __all__ = [
     "TypeFamily",

@@ -3,12 +3,10 @@
     *Symbolic Expression*
 
 """
-
 from wich._type import Type
 
-from .parameters import ExpressionParameters
-
 from .._symbol import Symbol
+from .parameters import ExpressionParameters
 
 __all__ = ["SymbolicExpressionType"]
 

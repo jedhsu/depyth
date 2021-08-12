@@ -5,9 +5,7 @@
   Only scalar types for now.
 
 """
-
 from dataclasses import dataclass
-
 from typing import Any as Uni
 
 __all__ = ["TypeParameter"]

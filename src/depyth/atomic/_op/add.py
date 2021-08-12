@@ -3,12 +3,10 @@
     *Atomic Type Add*
 
 """
-
 from sympy import Symbol
 
-from depyth.operator.arity import BinaryOperator
-
 from .._bind import AtomicType
+from depyth.operator.arity import BinaryOperator
 
 A = Symbol("A")
 B = Symbol("B")

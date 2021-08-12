@@ -7,11 +7,8 @@
   # [TODO] Can probably group with sequence.
 
 """
-
-
 from abc import ABCMeta
 from abc import abstractmethod
-
 from typing import Hashable
 
 from .._type import Type

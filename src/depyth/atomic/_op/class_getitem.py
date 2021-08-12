@@ -3,7 +3,6 @@
     *Class Get-Item*
 
 """
-
 from sympy import Symbol
 
 from .._type import Type

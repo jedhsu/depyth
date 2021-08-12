@@ -49,3 +49,7 @@ repos:
     rev: v2.3.0
     hooks:
       - id: prettier
+  - repo: https://github.com/andreoliwa/nitpick
+    rev: v0.27.0
+    hooks:
+      - id: nitpick

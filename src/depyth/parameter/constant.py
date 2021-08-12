@@ -5,7 +5,6 @@
   Start with int for now, extend later.
 
 """
-
 from ._parameter import TypeParameter
 
 __all__ = ["ConstantTypeParameter"]

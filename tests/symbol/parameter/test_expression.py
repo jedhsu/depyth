@@ -3,12 +3,9 @@
     *Expression Type Parameter,   [Bindings]*
 
 """
-
-from depyt.symbol.parameter.expression import Test
-
-from depyt.symbol.parameter.expression import SymbolicExpression
 from depyt.symbol.parameter.expression import ExpressionTypeParameter
-
+from depyt.symbol.parameter.expression import SymbolicExpression
+from depyt.symbol.parameter.expression import Test
 from sympy import Expr
 
 

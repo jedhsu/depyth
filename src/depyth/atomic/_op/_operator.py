@@ -3,10 +3,15 @@
     *Atomic Type Operator*
 
 """
-
+from abc import ABCMeta
 from dataclasses import dataclass
 
-from abc import ABCMeta
+from depyth.operator import Operator
+
 
 @dataclass
-class AtomicTypeOperator(Operator,):
+class AtomicTypeOperator(
+    Operator,
+    metaclass=ABCMeta,
+):
+    pass

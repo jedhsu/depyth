@@ -3,7 +3,6 @@
     *Symbolic Sequence*
 
 """
-
 from dataclasses import dataclass
 
 from ._symbol import Symbol

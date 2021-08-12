@@ -5,11 +5,10 @@
   Example.
 
 """
-
 from dataclasses import dataclass
 
-from depyt.symbol import A
-from depyt.symbol import Integer
+from depyth.symbol import A
+from depyth.symbol import Integer
 
 
 @dataclass

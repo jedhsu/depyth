@@ -3,7 +3,6 @@
     *Composite Symbolic Type*
 
 """
-
 from .scalar import ScalarSymbolicType
 
 __all__ = ["CompositeSymbolicType"]

@@ -3,7 +3,6 @@
     *Symbolic Mapping*
 
 """
-
 from dataclasses import dataclass
 
 from ._symbolic import Symbolic

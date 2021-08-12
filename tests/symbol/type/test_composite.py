@@ -3,7 +3,6 @@
     *Composite Symbolic Type*
 
 """
-
 from depyt.symbol.type.composite import TestExpression
 
 

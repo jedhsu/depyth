@@ -5,21 +5,17 @@
   Parameters for nox.
 
 """
-
-
-import nox
-
-from nox_poetry import Session
-from nox_poetry import session
-
+import shutil
+import sys
 from pathlib import Path
 from textwrap import dedent
 
-import sys
-import shutil
+import nox
+from nox_poetry import Session
+from nox_poetry import session
 
 
-package = "{{cookiecutter.package_name}}"
+package = "depyth"
 python_versions = [
     "3.9",
     "3.8",
@@ -28,8 +24,8 @@ python_versions = [
 nox.needs_version = ">= 2021.6.6"
 nox.options.sessions = (
     "pre-commit",
-    # "mypy",
-    # "typeguard",
+    "mypy",
+    "typeguard",
     # "security",
     # "tests",
     # "examples",
@@ -130,41 +126,69 @@ def lint(
         activate(session)
 
 
-# """
+"""
 
-#     *static-types*
+    *static-types*
 
-#   Check for well-typedness through _mypy_.
+  Check for well-typedness through _mypy_.
 
-# """
+"""
 
 
-# @session(
-#     python=python_versions,
-# )
-# def mypy(
-#     session: Session,
-# ) -> None:
-#     args = session.posargs or [
-#         "src",
-#         "tests",
-#         "docs/conf.py",
-#     ]
-#     session.install(".")
-#     session.install(
-#         "mypy",
-#         "pytest",
-#     )
-#     session.run(
-#         "mypy",
-#         *args,
-#     )
-#     if not session.posargs:
-#         session.run(
-#             "mypy",
-#             f"--python-executable={sys.executable}",
-#             "noxfile.py",
-#         )
+@session(
+    python=python_versions,
+)
+def mypy(
+    session: Session,
+) -> None:
+    args = session.posargs or [
+        "src",
+        "tests",
+        "docs/conf.py",
+    ]
+    session.install(".")
+    session.install(
+        "mypy",
+        "pytest",
+    )
+    session.run(
+        "mypy",
+        *args,
+    )
+    if not session.posargs:
+        session.run(
+            "mypy",
+            f"--python-executable={sys.executable}",
+            "noxfile.py",
+        )
+
+
+"""
+
+    *runtime-types*
+
+  Checks for type safety at runtime with _typeguard_.
+
+"""
+
+
+@session(
+    python=python_versions,
+)
+def typeguard(
+    session: Session,
+):
+    session.install(".")
+    session.install(
+        "pytest",
+        "typeguard",
+        "pygments",
+    )
+    session.run(
+        "pytest",
+        f"--typeguard-packages={package}",
+        *session.posargs,
+    )
 
 
 # """
@@ -207,34 +231,6 @@ def lint(
 #                 "coverage",
 #                 posargs=[],
 #             )
-
-
-# """
-
-#     *runtime-types*
-
-#   Checks for type safety at runtime with _typeguard_.
-
-# """
-
-
-# @session(
-#     python=python_versions,
-# )
-# def typeguard(
-#     session: Session,
-# ):
-#     session.install(".")
-#     session.install(
-#         "pytest",
-#         "typeguard",
-#         "pygments",
-#     )
-#     session.run(
-#         "pytest",
-#         f"--typeguard-packages={package}",
-#         *session.posargs,
-#     )
 
 
 # """
